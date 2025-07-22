@@ -1,0 +1,51 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+#malla {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.semestre {
+  border-left: 6px solid #3498db;
+  background: #ecf0f1;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.semestre h2 {
+  color: #2980b9;
+}
+
+.materia {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  padding: 6px;
+  border-radius: 6px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.materia input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.materia.optativa {
+  background-color: #ffe0b2;
+  border: 1px dashed #e67e22;
+}
+
+.materia.locked {
+  opacity: 0.5;
+  pointer-events: none;
+}
