@@ -1,67 +1,65 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f9f9f9;
-  color: #333;
-  margin: 0;
-  padding: 2rem;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-#malla-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.semestre {
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.semestre:nth-child(odd) {
-  background: #e0f7fa;
-}
-
-.semestre:nth-child(even) {
-  background: #f1f8e9;
-}
-
-.optativa {
-  background-color: #fff3e0;
-  border-left: 4px solid #ff9800;
-}
-
-.materia {
-  margin: 0.5rem 0;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  transition: background 0.3s;
-}
-
-.materia.aprobada {
-  background-color: #c8e6c9;
-}
-
-.materia button {
-  padding: 0.3rem 0.6rem;
-  background-color: #64b5f6;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-}
-
-.materia button:disabled {
-  background-color: #b0bec5;
-  cursor: not-allowed;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malla Interactiva - Economía</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .semestre {
+      border-radius: 12px;
+      padding: 16px;
+      background-color: #e0f7fa;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .semestre h2 {
+      margin-top: 0;
+    }
+    .ramo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 8px;
+      margin: 5px 0;
+      padding: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+    .ramo button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #26a69a;
+      color: white;
+      cursor: pointer;
+    }
+    .ramo button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .ramo.optativa {
+      background-color: #ffe0b2;
+    }
+    .aprobado {
+      background-color: #c8e6c9 !important;
+    }
+    .año-1 .semestre { background-color: #e1f5fe; }
+    .año-2 .semestre { background-color: #f3e5f5; }
+    .año-3 .semestre { background-color: #fff3e0; }
+    .año-4 .semestre { background-color: #e8f5e9; }
+  </style>
+</head>
+<body>
+  <div class="container" id="malla"></div>
