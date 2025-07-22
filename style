@@ -1,51 +1,67 @@
 body {
-  font-family: sans-serif;
-  margin: 20px;
+  font-family: 'Segoe UI', sans-serif;
   background: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 2rem;
 }
 
 h1 {
   text-align: center;
-  color: #2c3e50;
+  margin-bottom: 2rem;
 }
 
-#malla {
+#malla-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 2rem;
 }
 
 .semestre {
-  border-left: 6px solid #3498db;
-  background: #ecf0f1;
-  padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.semestre h2 {
-  color: #2980b9;
+.semestre:nth-child(odd) {
+  background: #e0f7fa;
+}
+
+.semestre:nth-child(even) {
+  background: #f1f8e9;
+}
+
+.optativa {
+  background-color: #fff3e0;
+  border-left: 4px solid #ff9800;
 }
 
 .materia {
-  display: flex;
-  align-items: center;
-  margin: 5px 0;
-  padding: 6px;
-  border-radius: 6px;
-  background-color: white;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
   border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  transition: background 0.3s;
 }
 
-.materia input[type="checkbox"] {
-  margin-right: 10px;
+.materia.aprobada {
+  background-color: #c8e6c9;
 }
 
-.materia.optativa {
-  background-color: #ffe0b2;
-  border: 1px dashed #e67e22;
+.materia button {
+  padding: 0.3rem 0.6rem;
+  background-color: #64b5f6;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
 }
 
-.materia.locked {
-  opacity: 0.5;
-  pointer-events: none;
+.materia button:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
 }
