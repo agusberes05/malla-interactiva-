@@ -1,4 +1,3 @@
-# malla-interactiva-
 <!DOCTYPE html>
 <html lang="es">
 <head>
