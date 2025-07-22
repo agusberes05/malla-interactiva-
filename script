@@ -1,0 +1,151 @@
+
+const materias = [
+  // Año 1 - Semestre 1
+  { nombre: "Introducción a la microeconomía", id: "micro1", previas: [], semestre: 1 },
+  { nombre: "Cálculo 1/a", id: "calculo1a", previas: [], semestre: 1 },
+  { nombre: "Conceptos contables", id: "contables", previas: [], semestre: 1 },
+  { nombre: "Administración y Gestión de las organizaciones 1", id: "admin1", previas: [], semestre: 1 },
+
+  // Año 1 - Semestre 2
+  { nombre: "Economía descriptiva", id: "econDesc", previas: [], semestre: 2 },
+  { nombre: "Algebra lineal", id: "algebra", previas: [], semestre: 2 },
+  { nombre: "Cálculo 1/b", id: "calculo1b", previas: ["calculo1a"], semestre: 2 },
+  { nombre: "Ciencia política", id: "opt1", previas: [], semestre: 2, optativa: true },
+  { nombre: "Sociología económica", id: "opt2", previas: [], semestre: 2, optativa: true },
+  { nombre: "Sociología Contemporánea", id: "opt3", previas: [], semestre: 2, optativa: true },
+  { nombre: "Desarrollo y bienestar", id: "opt4", previas: [], semestre: 2, optativa: true },
+
+  // Año 2 - Semestre 3
+  { nombre: "Macroeconomía 1", id: "macro1", previas: ["micro1"], semestre: 3 },
+  { nombre: "Cálculo 2", id: "calculo2", previas: ["calculo1a", "calculo1b"], semestre: 3 },
+  { nombre: "Historia económica mundial", id: "histEconMundial", previas: ["econDesc", "micro1"], semestre: 3 },
+  { nombre: "Sistemas de Descripción Macroeconómica", id: "opt5", previas: ["micro1", "econDesc"], semestre: 3, optativa: true },
+  { nombre: "Estadística descriptiva", id: "opt6", previas: [], semestre: 3, optativa: true },
+  { nombre: "Población, Economía y Desarrollo", id: "opt7", previas: [], semestre: 3, optativa: true },
+  { nombre: "Historia contemporánea de América Latina", id: "opt8", previas: [], semestre: 3, optativa: true },
+  { nombre: "Derecho del Empresario", id: "opt9", previas: [], semestre: 3, optativa: true },
+
+  // Año 2 - Semestre 4
+  { nombre: "Microeconomía 1", id: "microeco1", previas: ["calculo2", "micro1"], semestre: 4 },
+  { nombre: "Macroeconomía 2", id: "macro2", previas: ["macro1"], semestre: 4 },
+  { nombre: "Estadística 1", id: "estad1", previas: ["calculo2"], semestre: 4 },
+  { nombre: "Cálculo 3", id: "opt10", previas: ["calculo1a", "algebra"], semestre: 4, optativa: true },
+  { nombre: "Economía Matemática", id: "opt11", previas: ["calculo2", "algebra", "micro1"], semestre: 4, optativa: true },
+  { nombre: "Ética, Economía y Justicia", id: "opt12", previas: [], semestre: 4, optativa: true },
+  { nombre: "Economía Circular", id: "opt13", previas: [], semestre: 4, optativa: true },
+
+  // Año 3 - Semestre 5
+  { nombre: "Microeconomía 2", id: "microeco2", previas: ["microeco1"], semestre: 5 },
+  { nombre: "Economía de América Latina", id: "ecla", previas: [], semestre: 5 },
+  { nombre: "Macroeconomía 3", id: "macro3", previas: ["macro1", "calculo2"], semestre: 5 },
+  { nombre: "Estadística 2", id: "estad2", previas: ["estad1"], semestre: 5 },
+  { nombre: "Introducción a la metodología", id: "metod", previas: [], semestre: 5 },
+  { nombre: "Estadística 1/pr", id: "opt14", previas: [], semestre: 5, optativa: true },
+  { nombre: "EFI MicroCECA", id: "opt15", previas: [], semestre: 5, optativa: true },
+  { nombre: "Ciencia de Datos con R", id: "opt16", previas: ["opt6"], semestre: 5, optativa: true },
+  { nombre: "Análisis económico y evaluación de impacto", id: "opt17", previas: ["microeco1"], semestre: 5, optativa: true },
+  { nombre: "EFI: Cooperativas y Colectivos", id: "opt18", previas: [], semestre: 5, optativa: true },
+
+  // Año 3 - Semestre 6
+  { nombre: "Economía del Uruguay", id: "uru", previas: ["econDesc", "macro2"], semestre: 6 },
+  { nombre: "Microeconomía 3", id: "microeco3", previas: ["microeco1"], semestre: 6 },
+  { nombre: "Econometría 1", id: "econom1", previas: ["algebra", "estad2"], semestre: 6 },
+  { nombre: "Estadística 2/pr", id: "estad2pr", previas: [], semestre: 6 },
+  { nombre: "Cambio y Diseño de Instituciones", id: "opt19", previas: ["microeco1"], semestre: 6, optativa: true },
+  { nombre: "Matemática financiera", id: "opt20", previas: ["estad1"], semestre: 6, optativa: true },
+  { nombre: "Economía Agropecuaria y Ambiental", id: "opt21", previas: ["microeco1"], semestre: 6, optativa: true },
+  { nombre: "Economía y gestión bancaria", id: "opt22", previas: [], semestre: 6, optativa: true },
+  { nombre: "Historia Económica del Uruguay", id: "opt23", previas: ["histEconMundial"], semestre: 6, optativa: true },
+  { nombre: "Desigualdad y Pobreza", id: "opt24", previas: ["estad1"], semestre: 6, optativa: true },
+  { nombre: "Interpretación y Análisis Contable", id: "opt25", previas: ["contables"], semestre: 6, optativa: true },
+  { nombre: "Economía Laboral", id: "opt26", previas: ["microeco1"], semestre: 6, optativa: true },
+  { nombre: "EFI: Determinantes del Abandono", id: "opt27", previas: [], semestre: 6, optativa: true },
+  { nombre: "Unidad de Difusión Académica", id: "opt28", previas: [], semestre: 6, optativa: true },
+
+  // Año 4 - Semestre 7
+  { nombre: "Economía Internacional", id: "internacional", previas: ["microeco1", "macro2"], semestre: 7 },
+  { nombre: "Teorías del Desarrollo Económico", id: "teodes", previas: ["macro3"], semestre: 7 },
+  { nombre: "Econometría 2", id: "econom2", previas: ["econom1"], semestre: 7 },
+  { nombre: "Historia del Pensamiento Económico", id: "histPens", previas: [], semestre: 7 },
+  { nombre: "Economía Pública", id: "opt29", previas: ["macro2"], semestre: 7, optativa: true },
+  { nombre: "Economía y Género", id: "opt30", previas: ["macro1", "estad1", "microeco1"], semestre: 7, optativa: true },
+  { nombre: "Economía y Política Monetaria", id: "opt31", previas: ["macro2"], semestre: 7, optativa: true },
+  { nombre: "Política Económica", id: "opt32", previas: ["macro2"], semestre: 7, optativa: true },
+  { nombre: "Organización Industrial", id: "opt33", previas: ["microeco2"], semestre: 7, optativa: true },
+  { nombre: "Análisis Multivariado 1", id: "opt34", previas: ["estad2"], semestre: 7, optativa: true },
+  { nombre: "Series Cronológicas 1", id: "opt35", previas: ["estad2"], semestre: 7, optativa: true },
+  { nombre: "Bases y Paquetes Estadísticos", id: "opt36", previas: ["metod", "econom1"], semestre: 7, optativa: true },
+  { nombre: "Finanzas Corporativas", id: "opt37", previas: ["admin1", "opt20", "estad1", "opt25"], semestre: 7, optativa: true },
+  { nombre: "Marketing Básico", id: "opt38", previas: [], semestre: 7, optativa: true },
+
+  // Año 4 - Semestre 8
+  { nombre: "Mercados Financieros", id: "mercfin", previas: ["opt37"], semestre: 8 },
+  { nombre: "Modelos Dinámicos y Computacionales", id: "moddyn", previas: ["calculo2"], semestre: 8 },
+  { nombre: "Economía y Finanzas Internacionales", id: "finint", previas: ["macro2"], semestre: 8 },
+  { nombre: "Tópicos de Macroeconomía", id: "topmacro", previas: ["macro2"], semestre: 8 },
+  { nombre: "Seminario de Economía Nacional", id: "semnac", previas: ["uru"], semestre: 8 },
+  { nombre: "Macroeconomía y Finanzas Públicas", id: "macropub", previas: ["macro2"], semestre: 8 },
+  { nombre: "Economía y Estrategia Empresarial", id: "estrategia", previas: ["macro2"], semestre: 8 },
+  { nombre: "Globalización y Desarrollo", id: "global", previas: ["macro2", "internacional", "ecla"], semestre: 8 },
+  { nombre: "Taller de Análisis de Coyuntura", id: "coyuntura", previas: ["macro2", "econom1"], semestre: 8 },
+  { nombre: "Desarrollo Económico Territorial", id: "deterr", previas: [], semestre: 8 },
+  { nombre: "CCEEmprende", id: "opt39", previas: ["admin1", "opt20", "estad1", "opt25"], semestre: 8, optativa: true },
+  { nombre: "Marketing Estratégico", id: "opt40", previas: ["opt38"], semestre: 8, optativa: true },
+  { nombre: "Proyectos de Inversión", id: "opt41", previas: ["opt37"], semestre: 8, optativa: true },
+  { nombre: "Trabajo de Iniciación a la Investigación", id: "opt42", previas: ["econom1", "metod"], semestre: 8, optativa: true },
+];
+
+function crearMalla() {
+  const container = document.getElementById("malla-container");
+  const semestres = [...new Set(materias.map(m => m.semestre))];
+
+  semestres.forEach(sem => {
+    const bloque = document.createElement("div");
+    bloque.className = "semestre";
+    const titulo = document.createElement("h2");
+    titulo.textContent = `Semestre ${sem}`;
+    bloque.appendChild(titulo);
+
+    materias.filter(m => m.semestre === sem).forEach(materia => {
+      const div = document.createElement("div");
+      div.className = "materia" + (materia.optativa ? " optativa" : "");
+      div.id = materia.id;
+
+      const span = document.createElement("span");
+      span.textContent = materia.nombre;
+
+      const btn = document.createElement("button");
+      btn.textContent = "Aprobar";
+      btn.disabled = materia.previas.length > 0;
+
+      btn.addEventListener("click", () => aprobarMateria(materia.id));
+
+      div.appendChild(span);
+      div.appendChild(btn);
+      bloque.appendChild(div);
+    });
+
+    container.appendChild(bloque);
+  });
+}
+
+function aprobarMateria(id) {
+  const div = document.getElementById(id);
+  if (div && !div.classList.contains("aprobada")) {
+    div.classList.add("aprobada");
+    div.querySelector("button").disabled = true;
+
+    materias.forEach(m => {
+      if (m.previas.includes(id)) {
+        const todasAprobadas = m.previas.every(p =>
+          document.getElementById(p)?.classList.contains("aprobada")
+        );
+        if (todasAprobadas) {
+          document.getElementById(m.id).querySelector("button").disabled = false;
+        }
+      }
+    });
+  }
+}
+
+window.onload = crearMalla;
